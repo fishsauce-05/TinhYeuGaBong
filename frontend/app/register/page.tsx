@@ -7,7 +7,7 @@ export default function Home() {
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-center">
         <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
           <h2 className = "text-2xl text-pink-600 font-bold mb-6 text-center">
-            Đăng Nhập
+            Đăng Ký
           </h2>
           <form className = "flex flex-col gap-4">
             <label className = "text-info">Tên đăng nhập</label>
@@ -22,14 +22,20 @@ export default function Home() {
               className = "input-info"
               placeholder = "Nhập mật khẩu"
             />
+            <label className = "text-info">Xác nhận mật khẩu</label>
+            <input
+              type = "password"
+              className = "input-info"
+              placeholder = "Nhập lại mật khẩu"
+            />
             <button
               type = "submit"
               className = "w-full bg-pink-600 text-white py-2 rounded-lg hover:bg-pink-700 transition-colors"
             >
-              Đăng nhập
+              Đăng ký
             </button>
-            <Link href = "/register" className = "text-pink-600 hover:underline text-sm text-center">
-              Chưa có tài khoản? Đăng ký ngay!
+            <Link href = "/" className = "text-pink-600 hover:underline text-sm text-center">
+              Đã có tài khoản? Đăng nhập ngay!
             </Link>
           </form>
         </div>
