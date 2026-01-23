@@ -1,7 +1,16 @@
+'use client';
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React from "react";
 
+export default function RegisterPage() {
+  const router = useRouter();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/onboarding");
+  }
 
-export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-custom font-roboto">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-center">
@@ -9,28 +18,31 @@ export default function Home() {
           <h2 className = "text-2xl text-pink-600 font-bold mb-6 text-center">
             Đăng Ký
           </h2>
-          <form className = "flex flex-col gap-4">
-            <label className = "text-info">Tên đăng nhập</label>
+          <form className = "flex flex-col gap-4" onSubmit={handleSubmit}>
+            <label className = "label-info">Tên đăng nhập</label>
             <input
               type = "text"
               className = "input-info"
               placeholder = "Nhập tên đăng nhập"
+              required
             />
-            <label className = "text-info">Mật khẩu</label>
+            <label className = "label-info">Mật khẩu</label>
             <input
               type = "password"
               className = "input-info"
               placeholder = "Nhập mật khẩu"
+              required
             />
-            <label className = "text-info">Xác nhận mật khẩu</label>
+            <label className = "label-info">Xác nhận mật khẩu</label>
             <input
               type = "password"
               className = "input-info"
               placeholder = "Nhập lại mật khẩu"
+              required
             />
             <button
               type = "submit"
-              className = "w-full bg-pink-600 text-white py-2 rounded-lg hover:bg-pink-700 transition-colors"
+              className = "button-info"
             >
               Đăng ký
             </button>

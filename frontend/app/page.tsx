@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-custom font-roboto">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-center">
@@ -10,17 +10,19 @@ export default function Home() {
             Đăng Nhập
           </h2>
           <form className = "flex flex-col gap-4">
-            <label className = "text-info">Tên đăng nhập</label>
+            <label className = "label-info">Tên đăng nhập</label>
             <input
               type = "text"
               className = "input-info"
               placeholder = "Nhập tên đăng nhập"
+              required
             />
-            <label className = "text-info">Mật khẩu</label>
+            <label className = "label-info">Mật khẩu</label>
             <input
               type = "password"
               className = "input-info"
               placeholder = "Nhập mật khẩu"
+              required
             />
             <button
               type = "submit"
