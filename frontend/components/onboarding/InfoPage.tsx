@@ -1,5 +1,8 @@
 'use client';
 import React from 'react';
+import PageCard from '../layout/PageCard';
+import LabelTag from '../layout/LabelTag';
+import InputTag from '../layout/InputTag';
 
 interface InfoPageInterface {
   loverName: string;
@@ -36,31 +39,29 @@ export default function InfoPage ({
 
   //Return
   return (
-    <div className = "w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+    <PageCard>
       <div className = "text-center mb-4 text-pink-600">
         <span className = "text-6xl">📝</span>
         <h2 className = "font-bold text-pink-500 text-2xl mt-2 mb-4">Thông tin của hai bạn</h2> 
       </div>
       <form className = "flex flex-col gap-4" onSubmit = {handleSubmit}>
-        <label className = "label-info">Tên người yêu của bạn</label>
-        <input 
+        <LabelTag>Tên của người yêu bạn</LabelTag>
+        <InputTag
           type = "text"
-          className = "input-info"
           placeholder = "Nhập tên ở đây"
           value = {loverName}
           onChange = {(e) => setLoverName(e.target.value)}
           required 
         />
-        <label className = "label-info">Ngày đầu hẹn hò là hôm nào?</label>
-        <input 
+        <LabelTag>Ngày đầu hẹn hò là hôm nào?</LabelTag>
+        <InputTag
           type = "date"
-          className = "input-info"
-          placeholder = "Nhập tên ở đây"
+          placeholder = "Nhập ngày ở đây"
           value = {firstDate}
           onChange = {(e) => setFirstDate(e.target.value)}
           required 
         />
-        <label className = "label-info">Ai đã tỏ tình trước ai vậy? 🤔</label> 
+        <LabelTag>Ai đã tỏ tình trước ai vậy? 🤔</LabelTag> 
         <div className = "flex gap-4 mt-2">
           <InputOption value = "It's me" />
           <InputOption value = "Đối phương" />
@@ -81,6 +82,6 @@ export default function InfoPage ({
           </button>
         </div>
       </form>
-    </div>
+    </PageCard>
   )
 }

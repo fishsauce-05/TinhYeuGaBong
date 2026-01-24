@@ -1,41 +1,42 @@
 import Link from "next/link";
-
+import PageWrapper from "@/components/layout/PageWrapper";
+import PageMain from "@/components/layout/PageMain";
+import PageCard from "@/components/layout/PageCard";
+import LabelTag from "@/components/layout/LabelTag";
+import ButtonTag from "@/components/layout/ButtonTag";
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-custom font-roboto">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-center">
-        <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+    <PageWrapper>
+      <PageMain>
+        <PageCard>
           <h2 className = "text-2xl text-pink-600 font-bold mb-6 text-center">
             Đăng Nhập
           </h2>
           <form className = "flex flex-col gap-4">
-            <label className = "label-info">Tên đăng nhập</label>
+            <LabelTag>Tên đăng nhập</LabelTag>
             <input
               type = "text"
               className = "input-info"
               placeholder = "Nhập tên đăng nhập"
               required
             />
-            <label className = "label-info">Mật khẩu</label>
+            <LabelTag>Mật khẩu</LabelTag>
             <input
               type = "password"
               className = "input-info"
               placeholder = "Nhập mật khẩu"
               required
             />
-            <button
-              type = "submit"
-              className = "w-full bg-pink-600 text-white py-2 rounded-lg hover:bg-pink-700 transition-colors"
-            >
+            <ButtonTag type="submit">
               Đăng nhập
-            </button>
+            </ButtonTag>
             <Link href = "/register" className = "text-pink-600 hover:underline text-sm text-center">
               Chưa có tài khoản? Đăng ký ngay!
             </Link>
           </form>
-        </div>
-      </main>
-    </div>
+        </PageCard>
+      </PageMain>
+    </PageWrapper>
   );
 }

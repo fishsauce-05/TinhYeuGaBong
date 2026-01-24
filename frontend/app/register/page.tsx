@@ -1,5 +1,11 @@
 'use client';
 
+import ButtonTag from "@/components/layout/ButtonTag";
+import LabelTag from "@/components/layout/LabelTag";
+import PageWrapper from "@/components/layout/PageWrapper";
+import PageMain from "@/components/layout/PageMain";
+import PageCard from "@/components/layout/PageCard";
+import InputTag from "@/components/layout/InputTag";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -12,46 +18,40 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-custom font-roboto">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-center">
-        <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+    <PageWrapper>
+      <PageMain>
+        <PageCard>
           <h2 className = "text-2xl text-pink-600 font-bold mb-6 text-center">
             Đăng Ký
           </h2>
           <form className = "flex flex-col gap-4" onSubmit={handleSubmit}>
-            <label className = "label-info">Tên đăng nhập</label>
-            <input
-              type = "text"
-              className = "input-info"
-              placeholder = "Nhập tên đăng nhập"
-              required
+            <LabelTag>Tên đăng nhập</LabelTag>
+            <InputTag 
+              type="text" 
+              placeholder="Nhập tên đăng nhập" 
+              required 
             />
-            <label className = "label-info">Mật khẩu</label>
-            <input
+            <LabelTag>Mật khẩu</LabelTag>
+            <InputTag
               type = "password"
-              className = "input-info"
               placeholder = "Nhập mật khẩu"
               required
             />
-            <label className = "label-info">Xác nhận mật khẩu</label>
-            <input
+            <LabelTag>Xác nhận mật khẩu</LabelTag>
+            <InputTag
               type = "password"
-              className = "input-info"
               placeholder = "Nhập lại mật khẩu"
               required
             />
-            <button
-              type = "submit"
-              className = "button-info"
-            >
+            <ButtonTag type="submit">
               Đăng ký
-            </button>
+            </ButtonTag>
             <Link href = "/" className = "text-pink-600 hover:underline text-sm text-center">
               Đã có tài khoản? Đăng nhập ngay!
             </Link>
           </form>
-        </div>
-      </main>
-    </div>
+        </PageCard>
+      </PageMain>
+    </PageWrapper>
   );
 }

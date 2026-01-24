@@ -2,8 +2,10 @@
 
 import {useRouter} from 'next/navigation';
 import React, {useState} from 'react';
-import WelcomePage from './components/welcome';
-import InfoStep from './components/info';
+import WelcomePage from '@/components/onboarding/WelcomePage';
+import InfoPage from '@/components/onboarding/InfoPage';
+import PageWrapper from '@/components/layout/PageWrapper';
+import PageMain from '@/components/layout/PageMain';
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -21,13 +23,13 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className = "flex min-h-screen items-center justify-center bg-custom font-roboto">
-      <main className = "flex min-h-screen w-full max-w-3xl flex-col items-center justify-center">
+    <PageWrapper>
+      <PageMain>
         {page === 1 && (
           <WelcomePage nextPage = {nextPage}/>
         )}
         {page === 2 && (
-          <InfoStep 
+          <InfoPage
             backPage = {backPage}
             loverName = {loverName}
             setLoverName = {setLoverName}
@@ -36,8 +38,8 @@ export default function OnboardingPage() {
             handleSubmit = {handleSubmit}
           />
         )}
-      </main>
-    </div>
+      </PageMain>
+    </PageWrapper>
   )
   
 }

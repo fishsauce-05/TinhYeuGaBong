@@ -1,6 +1,7 @@
 'use client';
 
-import { text } from "stream/consumers";
+import ButtonTag from "../layout/ButtonTag";
+import PageCard from "../layout/PageCard";
 
 interface WelcomePageInterface {
   nextPage: () => void;
@@ -18,7 +19,7 @@ export default function WelcomePage({nextPage}: WelcomePageInterface) {
   }
 
   return (
-    <div className = "w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+    <PageCard>
       <div className = "text-center mb-4 text-pink-600">
         <span className = "text-6xl">💝</span>
         <h2 className = "font-bold text-pink-500 text-2xl mt-2 mb-4">Welcome</h2> 
@@ -36,12 +37,9 @@ export default function WelcomePage({nextPage}: WelcomePageInterface) {
           <ListTag value = "Ai đã tỏ tình trước vậy? 🤔" />
         </ul>
       </div>
-      <button
-        onClick = {nextPage}
-        className = "button-info"
-      >
-        Tiếp tục 
-      </button>
-    </div>
+      <ButtonTag type="button" onClick={nextPage}>
+        Tiếp tục
+      </ButtonTag>
+    </PageCard>
   )
 }
