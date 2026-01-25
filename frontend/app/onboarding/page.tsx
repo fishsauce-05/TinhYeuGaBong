@@ -6,6 +6,7 @@ import WelcomePage from '@/components/onboarding/WelcomePage';
 import InfoPage from '@/components/onboarding/InfoPage';
 import PageWrapper from '@/components/layout/PageWrapper';
 import PageMain from '@/components/layout/PageMain';
+import CongratPage from '@/components/onboarding/CongratPage';
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -19,7 +20,7 @@ export default function OnboardingPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push('/');
+    router.push('./');
   };
 
   return (
@@ -38,6 +39,13 @@ export default function OnboardingPage() {
             nextPage = {nextPage}
           />
         )}
+        {page === 3 && (
+          <CongratPage
+            backPage = {backPage}
+            handleSubmit = {handleSubmit}
+          />
+        )}
+
       </PageMain>
     </PageWrapper>
   )

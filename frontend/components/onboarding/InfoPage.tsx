@@ -4,6 +4,7 @@ import PageCard from '../layout/PageCard';
 import LabelTag from '../layout/LabelTag';
 import InputTag from '../layout/InputTag';
 import ButtonTag from '../layout/ButtonTag';
+import TitleHeading from '../layout/TitleHeading';
 
 interface InfoPageInterface {
   loverName: string;
@@ -41,10 +42,13 @@ export default function InfoPage ({
   //Return
   return (
     <PageCard>
-      <div className = "text-center mb-4 text-pink-600">
-        <span className = "text-6xl">📝</span>
-        <h2 className = "font-bold text-pink-500 text-2xl mt-2 mb-4">Thông tin của hai bạn</h2> 
-      </div>
+      <TitleHeading 
+        icon = "📝"
+        title = "Thông tin của hai bạn"
+        subtitle = {[
+          "Hãy nhập thông tin của hai bạn để bắt đầu nhé!"
+        ]}
+      />
       <form className = "flex flex-col gap-4" onSubmit = {nextPage}>
         <LabelTag>Tên của người yêu bạn</LabelTag>
         <InputTag
