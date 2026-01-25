@@ -4,6 +4,7 @@ import PageMain from "@/components/layout/PageMain";
 import PageCard from "@/components/layout/PageCard";
 import LabelTag from "@/components/layout/LabelTag";
 import ButtonTag from "@/components/layout/ButtonTag";
+import InputTag from "@/components/layout/InputTag";
 
 export default function HomePage() {
   return (
@@ -15,16 +16,14 @@ export default function HomePage() {
           </h2>
           <form className = "flex flex-col gap-4">
             <LabelTag>Tên đăng nhập</LabelTag>
-            <input
+            <InputTag
               type = "text"
-              className = "input-info"
               placeholder = "Nhập tên đăng nhập"
               required
             />
             <LabelTag>Mật khẩu</LabelTag>
-            <input
+            <InputTag
               type = "password"
-              className = "input-info"
               placeholder = "Nhập mật khẩu"
               required
             />

@@ -11,8 +11,8 @@ export default function OnboardingPage() {
   const router = useRouter();
 
   const [page, setPage] = useState(1);
-  const backPage = () => setPage(1);
-  const nextPage = () => setPage(2);
+  const backPage = () => setPage(page - 1);
+  const nextPage = () => setPage(page + 1);
 
   const [loverName, setLoverName] = useState('');
   const [firstDate, setFirstDate] = useState('');
@@ -35,7 +35,7 @@ export default function OnboardingPage() {
             setLoverName = {setLoverName}
             firstDate = {firstDate}
             setFirstDate = {setFirstDate}
-            handleSubmit = {handleSubmit}
+            nextPage = {nextPage}
           />
         )}
       </PageMain>

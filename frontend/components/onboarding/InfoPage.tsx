@@ -3,6 +3,7 @@ import React from 'react';
 import PageCard from '../layout/PageCard';
 import LabelTag from '../layout/LabelTag';
 import InputTag from '../layout/InputTag';
+import ButtonTag from '../layout/ButtonTag';
 
 interface InfoPageInterface {
   loverName: string;
@@ -10,7 +11,7 @@ interface InfoPageInterface {
   firstDate: string;
   setFirstDate: (value:string) => void;
   backPage: () => void;
-  handleSubmit: (e: React.FormEvent) => void;
+  nextPage: (e: React.FormEvent) => void;
 }
 
 export default function InfoPage ({
@@ -19,7 +20,7 @@ export default function InfoPage ({
   firstDate,
   setFirstDate,
   backPage,
-  handleSubmit
+  nextPage
 }: InfoPageInterface) {
   
   //Option value
@@ -44,7 +45,7 @@ export default function InfoPage ({
         <span className = "text-6xl">📝</span>
         <h2 className = "font-bold text-pink-500 text-2xl mt-2 mb-4">Thông tin của hai bạn</h2> 
       </div>
-      <form className = "flex flex-col gap-4" onSubmit = {handleSubmit}>
+      <form className = "flex flex-col gap-4" onSubmit = {nextPage}>
         <LabelTag>Tên của người yêu bạn</LabelTag>
         <InputTag
           type = "text"
@@ -68,18 +69,13 @@ export default function InfoPage ({
           <InputOption value = "Hong cần tỏ tình" />
         </div>
         <div className = "flex gap-4">
-          <button 
-            onClick = {backPage}
-            className = "button-info"
-          >
-          ← Quay lại 
-          </button> 
-          <button 
-            type = "submit"
-            className = "button-info"
-          > 
-          Hoàn thành
-          </button>
+          <ButtonTag type="button" onClick={backPage}>
+            ← Quay lại 
+          </ButtonTag>
+          
+          <ButtonTag type="submit">
+            Hoàn thành
+          </ButtonTag>
         </div>
       </form>
     </PageCard>
