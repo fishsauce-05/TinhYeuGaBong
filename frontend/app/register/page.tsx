@@ -1,13 +1,7 @@
 'use client';
 
-import ButtonTag from "@/components/layout/ButtonTag";
-import LabelTag from "@/components/layout/LabelTag";
-import PageWrapper from "@/components/layout/PageWrapper";
-import PageMain from "@/components/layout/PageMain";
-import PageCard from "@/components/layout/PageCard";
-import InputTag from "@/components/layout/InputTag";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import * as F from "@/components/layout";
+import {useRouter} from 'next/navigation';
 import React from "react";
 
 export default function RegisterPage() {
@@ -18,40 +12,38 @@ export default function RegisterPage() {
   }
 
   return (
-    <PageWrapper>
-      <PageMain>
-        <PageCard>
-          <h2 className = "text-2xl text-pink-600 font-bold mb-6 text-center">
-            Đăng Ký
-          </h2>
-          <form className = "flex flex-col gap-4" onSubmit={handleSubmit}>
-            <LabelTag>Tên đăng nhập</LabelTag>
-            <InputTag 
+    <F.PageWrapper>
+      <F.PageMain>
+        <F.PageCard>
+          <F.TitleHeading title = "Đăng ký" />
+          <F.FormTag onSubmit={handleSubmit}>
+            <F.LabelTag>Tên đăng nhập</F.LabelTag>
+            <F.InputTag 
               type="text" 
               placeholder="Nhập tên đăng nhập" 
               required 
             />
-            <LabelTag>Mật khẩu</LabelTag>
-            <InputTag
+            <F.LabelTag>Mật khẩu</F.LabelTag>
+            <F.InputTag
               type = "password"
               placeholder = "Nhập mật khẩu"
               required
             />
-            <LabelTag>Xác nhận mật khẩu</LabelTag>
-            <InputTag
+            <F.LabelTag>Xác nhận mật khẩu</F.LabelTag>
+            <F.InputTag
               type = "password"
               placeholder = "Nhập lại mật khẩu"
               required
             />
-            <ButtonTag type="submit">
+            <F.ButtonTag type="submit">
               Đăng ký
-            </ButtonTag>
-            <Link href = "/" className = "text-pink-600 hover:underline text-sm text-center">
+            </F.ButtonTag>
+            <F.LinkTag href = "/">
               Đã có tài khoản? Đăng nhập ngay!
-            </Link>
-          </form>
-        </PageCard>
-      </PageMain>
-    </PageWrapper>
+            </F.LinkTag>
+          </F.FormTag>
+        </F.PageCard>
+      </F.PageMain>
+    </F.PageWrapper>
   );
 }

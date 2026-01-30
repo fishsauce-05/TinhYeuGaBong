@@ -13,7 +13,7 @@ const TitleHeading = (props: Props) => {
 
         <h2 className = "font-bold text-2xl mt-2 mb-4">{props.title}</h2>
 
-        {props.subtitle.map((line, index) => (
+        {props.subtitle?.map((line, index) => (
             <p key={index} className = "text-base">{line}</p>
         ))}
     </div>

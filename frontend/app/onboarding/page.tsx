@@ -1,12 +1,9 @@
 'use client';
 
+import * as F from "@/components/layout";
+import * as OnboardTag from '@/components/onboarding';
 import {useRouter} from 'next/navigation';
-import React, {useState} from 'react';
-import WelcomePage from '@/components/onboarding/WelcomePage';
-import InfoPage from '@/components/onboarding/InfoPage';
-import PageWrapper from '@/components/layout/PageWrapper';
-import PageMain from '@/components/layout/PageMain';
-import CongratPage from '@/components/onboarding/CongratPage';
+import React, {useState} from "react";
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -24,13 +21,13 @@ export default function OnboardingPage() {
   };
 
   return (
-    <PageWrapper>
-      <PageMain>
+    <F.PageWrapper>
+      <F.PageMain>
         {page === 1 && (
-          <WelcomePage nextPage = {nextPage}/>
+          <OnboardTag.WelcomePage nextPage = {nextPage}/>
         )}
         {page === 2 && (
-          <InfoPage
+          <OnboardTag.InfoPage
             backPage = {backPage}
             loverName = {loverName}
             setLoverName = {setLoverName}
@@ -40,14 +37,14 @@ export default function OnboardingPage() {
           />
         )}
         {page === 3 && (
-          <CongratPage
+          <OnboardTag.CongratPage
             backPage = {backPage}
             handleSubmit = {handleSubmit}
           />
         )}
 
-      </PageMain>
-    </PageWrapper>
+      </F.PageMain>
+    </F.PageWrapper>
   )
   
 }

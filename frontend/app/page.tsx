@@ -1,41 +1,34 @@
-import Link from "next/link";
-import PageWrapper from "@/components/layout/PageWrapper";
-import PageMain from "@/components/layout/PageMain";
-import PageCard from "@/components/layout/PageCard";
-import LabelTag from "@/components/layout/LabelTag";
-import ButtonTag from "@/components/layout/ButtonTag";
-import InputTag from "@/components/layout/InputTag";
+'use client';
+
+import {useRouter} from 'next/navigation';
+import React from 'react';
+import * as F from "@/components/layout";
+import * as setup from "@/components/get_started";
 
 export default function HomePage() {
+  const [showLogin, setShowLogin] = React.useState(false);
+  const openLogin = () => {
+    setShowLogin(true);
+  }
+
+  const openDocInNewTab = () => {
+    const newWindow = window.open('https://docs.google.com/document/d/1oruNGKwJK6KzJdNZ1ABHX-1uyguEKAop65KRED3-9Ic/edit?tab=t.95qaniamhv0i#heading=h.8hjq1tn0u0wo', '_blank', 'noopener, noreferrer')
+    if (newWindow) newWindow.opener = null;
+  }
   return (
-    <PageWrapper>
-      <PageMain>
-        <PageCard>
-          <h2 className = "text-2xl text-pink-600 font-bold mb-6 text-center">
-            Đăng Nhập
-          </h2>
-          <form className = "flex flex-col gap-4">
-            <LabelTag>Tên đăng nhập</LabelTag>
-            <InputTag
-              type = "text"
-              placeholder = "Nhập tên đăng nhập"
-              required
-            />
-            <LabelTag>Mật khẩu</LabelTag>
-            <InputTag
-              type = "password"
-              placeholder = "Nhập mật khẩu"
-              required
-            />
-            <ButtonTag type="submit">
-              Đăng nhập
-            </ButtonTag>
-            <Link href = "/register" className = "text-pink-600 hover:underline text-sm text-center">
-              Chưa có tài khoản? Đăng ký ngay!
-            </Link>
-          </form>
-        </PageCard>
-      </PageMain>
-    </PageWrapper>
-  );
+    <F.PageWrapper>
+      <F.PageMain>
+        <F.PageCard>
+          <F.TitleHeading
+            title = "The app for the couple for sharing, storing the happy moments with each other"
+          />
+          <div className = "flex gap-4">
+            <F.ButtonTag type = "button" onClick = {openLogin}>Get Started</F.ButtonTag>
+            <F.ButtonTag type = "button" onClick = {openDocInNewTab}>Go to Document</F.ButtonTag>
+          </div>
+        </F.PageCard>
+        {showLogin && <setup.LoginTag />}
+      </F.PageMain>
+    </F.PageWrapper>
+  )
 }

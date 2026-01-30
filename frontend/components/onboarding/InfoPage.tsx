@@ -1,10 +1,6 @@
 'use client';
 import React from 'react';
-import PageCard from '../layout/PageCard';
-import LabelTag from '../layout/LabelTag';
-import InputTag from '../layout/InputTag';
-import ButtonTag from '../layout/ButtonTag';
-import TitleHeading from '../layout/TitleHeading';
+import * as F from "../layout";
 
 interface InfoPageInterface {
   loverName: string;
@@ -41,8 +37,8 @@ export default function InfoPage ({
 
   //Return
   return (
-    <PageCard>
-      <TitleHeading 
+    <F.PageCard>
+      <F.TitleHeading 
         icon = "📝"
         title = "Thông tin của hai bạn"
         subtitle = {[
@@ -50,38 +46,38 @@ export default function InfoPage ({
         ]}
       />
       <form className = "flex flex-col gap-4" onSubmit = {nextPage}>
-        <LabelTag>Tên của người yêu bạn</LabelTag>
-        <InputTag
+        <F.LabelTag>Tên của người yêu bạn</F.LabelTag>
+        <F.InputTag
           type = "text"
           placeholder = "Nhập tên ở đây"
           value = {loverName}
           onChange = {(e) => setLoverName(e.target.value)}
           required 
         />
-        <LabelTag>Ngày đầu hẹn hò là hôm nào?</LabelTag>
-        <InputTag
+        <F.LabelTag>Ngày đầu hẹn hò là hôm nào?</F.LabelTag>
+        <F.InputTag
           type = "date"
           placeholder = "Nhập ngày ở đây"
           value = {firstDate}
           onChange = {(e) => setFirstDate(e.target.value)}
           required 
         />
-        <LabelTag>Ai đã tỏ tình trước ai vậy? 🤔</LabelTag> 
+        <F.LabelTag>Ai đã tỏ tình trước ai vậy? 🤔</F.LabelTag> 
         <div className = "flex gap-4 mt-2">
           <InputOption value = "It's me" />
           <InputOption value = "Đối phương" />
           <InputOption value = "Hong cần tỏ tình" />
         </div>
         <div className = "flex gap-4">
-          <ButtonTag type="button" onClick={backPage}>
+          <F.ButtonTag type="button" onClick={backPage}>
             ← Quay lại 
-          </ButtonTag>
+          </F.ButtonTag>
           
-          <ButtonTag type="submit">
+          <F.ButtonTag type="submit">
             Hoàn thành
-          </ButtonTag>
+          </F.ButtonTag>
         </div>
       </form>
-    </PageCard>
+    </F.PageCard>
   )
 }

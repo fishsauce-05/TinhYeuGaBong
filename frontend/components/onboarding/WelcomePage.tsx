@@ -1,7 +1,6 @@
 'use client';
 
-import ButtonTag from "../layout/ButtonTag";
-import PageCard from "../layout/PageCard";
+import * as F from "../layout";
 
 interface WelcomePageInterface {
   nextPage: () => void;
@@ -19,14 +18,15 @@ export default function WelcomePage({nextPage}: WelcomePageInterface) {
   }
 
   return (
-    <PageCard>
-      <div className = "text-center mb-4 text-pink-600">
-        <span className = "text-6xl">💝</span>
-        <h2 className = "font-bold text-pink-500 text-2xl mt-2 mb-4">Welcome</h2> 
-        <p className = "text-center text-base">Lần đầu tiên đến với Valentine!</p> 
-        <p className = "text-center text-sm mb-6 mt-2"> Hãy chia sẻ một số thông tin để bắt đầu nhé </p> 
-      </div>
-
+    <F.PageCard>
+      <F.TitleHeading 
+        icon = "💝"
+        title = "Welcome"
+        subtitle = {[
+          "Lần đầu tiên đến với Valentine!", 
+          "Hãy chia sẻ một số thông tin để bắt đầu nhé"
+        ]}
+      />
       <div className = "bg-pink-50 p-4 rounded-lg mb-6">
         <p className = "text-gray-600 text-sm leading-relaxed">
           Những thông tin cần thiết:
@@ -37,9 +37,9 @@ export default function WelcomePage({nextPage}: WelcomePageInterface) {
           <ListTag value = "Ai đã tỏ tình trước vậy? 🤔" />
         </ul>
       </div>
-      <ButtonTag type="button" onClick={nextPage}>
+      <F.ButtonTag type="button" onClick={nextPage}>
         Tiếp tục
-      </ButtonTag>
-    </PageCard>
+      </F.ButtonTag>
+    </F.PageCard>
   )
 }

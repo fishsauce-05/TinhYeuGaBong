@@ -1,8 +1,6 @@
 'use client';
 
-import ButtonTag from "../layout/ButtonTag";
-import PageCard from "../layout/PageCard";
-import TitleHeading from "../layout/TitleHeading";
+import * as F from "../layout";
 import React from "react";
 
 interface CongratPageInterface {
@@ -12,8 +10,8 @@ interface CongratPageInterface {
 
 export default function CongratPage({backPage, handleSubmit} : CongratPageInterface) {
   return (
-    <PageCard>
-        <TitleHeading
+    <F.PageCard>
+        <F.TitleHeading
           icon = "🎉"
           title = "Chúc mừng!"
           subtitle = {[
@@ -28,14 +26,14 @@ export default function CongratPage({backPage, handleSubmit} : CongratPageInterf
         </p>
         <form onSubmit={handleSubmit}>
             <div className = "flex gap-4">
-                <ButtonTag type = "button" onClick = {backPage} >
+                <F.ButtonTag type = "button" onClick = {backPage} >
                     Quay lại chỉnh sửa
-                </ButtonTag>
-                <ButtonTag type = "submit" >
+                </F.ButtonTag>
+                <F.ButtonTag type = "submit" >
                     Về trang chủ
-                </ButtonTag>
+                </F.ButtonTag>
             </div>
         </form>
-    </PageCard>
+    </F.PageCard>
   )
 }
